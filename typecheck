@@ -1,0 +1,24 @@
+#!/bin/bash
+# Type checking script for tokki Python SDK
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "🔍 Running type checks..."
+echo ""
+
+# Run pyright
+echo "📋 Pyright:"
+uv run pyright
+echo "✅ Pyright passed!"
+echo ""
+
+# Run mypy
+echo "📋 Mypy:"
+uv run mypy src/tokki_sdk --exclude 'tokki_pb2\.py' --exclude 'tokki_pb2_grpc\.py'
+echo "✅ Mypy passed!"
+echo ""
+
+echo "✨ All type checks passed!"

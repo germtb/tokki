@@ -1,0 +1,11 @@
+{
+  "pythonVersion": "3.11",
+  "typeCheckingMode": "standard",
+  "include": ["src/tokki_sdk", "tests"],
+  "extraPaths": ["src"],
+  "exclude": [
+    "**/__pycache__",
+    "src/tokki_sdk/tokki_pb2.py",
+    "src/tokki_sdk/tokki_pb2_grpc.py"
+  ]
+}
