@@ -84,16 +84,8 @@ enforces file path boundaries for file tools.
 
 ## Security Model
 
-Tokki tools are intended for trusted agent runtimes. The `bash` tool executes
-commands through the local shell, and file tools can access the filesystem
-according to their `ExecutionContext`.
-
-If you expose Tokki to untrusted users or model output, run it inside an
-isolated container or sandbox, set `enforce_boundaries=True` where appropriate,
-and treat MCP endpoints and bearer tokens as trusted infrastructure.
-
-The gRPC helper currently binds with an insecure port. Deploy it only behind a
-trusted transport boundary unless you add TLS/authentication at the host layer.
+Tokki SDK agents are meant to run in a sandboxed environment, unless you avoid
+bash tool and internet usage.
 
 ## Workspace Pattern
 
